@@ -33,5 +33,7 @@ namespace AnyoneTennis.Models
         public System.Data.Entity.DbSet<AnyoneTennis.Models.Member> Members { get; set; }
 
         public System.Data.Entity.DbSet<AnyoneTennis.Models.Coach> Coaches { get; set; }
+
+        public System.Data.Entity.DbSet<AnyoneTennis.Models.Schedule> Schedules { get; set; }
     }
 }
