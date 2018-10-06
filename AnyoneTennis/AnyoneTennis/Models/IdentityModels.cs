@@ -29,5 +29,7 @@ namespace AnyoneTennis.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<AnyoneTennis.Models.Member> Members { get; set; }
     }
 }
