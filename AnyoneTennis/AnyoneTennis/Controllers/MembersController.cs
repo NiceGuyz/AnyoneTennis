@@ -30,6 +30,7 @@ namespace AnyoneTennis.Controllers
                               EventName = e.Name,
                               EventDescription = e.Description,
                               EventDate = e.Date,
+                              CoachId = c.CoachId,
                               Name = c.Name,
                               Nickname = c.Nickname,
                               Biography = c.Biography
