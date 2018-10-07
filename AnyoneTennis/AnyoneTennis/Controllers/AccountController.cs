@@ -17,6 +17,7 @@ namespace AnyoneTennis.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private tennisContext db = new tennisContext();
 
         public AccountController()
         {
@@ -156,7 +157,11 @@ namespace AnyoneTennis.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
+                    db.Member.Add(new Member { email = model.Email, Name = model.Name, Dob = model.Dob, Gender = model.Gender });
+                    db.SaveChanges();
+
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

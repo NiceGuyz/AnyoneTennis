@@ -17,7 +17,8 @@ namespace AnyoneTennis
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = @"Server=ehsesql1prd.cdu.edu.au;Database=tennis;User Id=test;Password=easypassword";
+       
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<tennisContext>(options => options.UseSqlServer(connection));
         }
     }

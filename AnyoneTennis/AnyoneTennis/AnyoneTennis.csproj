@@ -280,6 +280,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20181006033324_IntialDb.cs" />
+    <Compile Include="Migrations\20181006033324_IntialDb.designer.cs">
+      <DependentUpon>20181006033324_IntialDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20181007102706_MemberId.cs" />
+    <Compile Include="Migrations\20181007102706_MemberId.designer.cs">
+      <DependentUpon>20181007102706_MemberId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\tennisContextModelSnapshot.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Coach.cs" />
     <Compile Include="Models\Scheds.cs" />

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace AnyoneTennis.Models
@@ -62,6 +63,20 @@ namespace AnyoneTennis.Models
         public bool RememberMe { get; set; }
     }
 
+    public class LoginDobModel
+    {
+        [Required]
+        [Display(Name = "User ID")]
+        public string Id { get; set; }
+
+        [Required]
+        [Display(Name = "DOB")]
+        public string Dob { get; set; }
+
+        [Display(Name = "Remember me?")]
+        public bool RememberMe { get; set; }
+    }
+
     public class RegisterViewModel
     {
         [Required]
@@ -79,6 +94,30 @@ namespace AnyoneTennis.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+
+        [Required]
+        [Display(Name = "Date of Birth")]
+        public DateTime Dob { get; set; }
+
+        [Required]
+        [Display(Name = "Gender")]
+        public int Gender { get; set; }
+
+    }
+
+    public class RegisterDobModel
+    {
+        [Required]
+        [Display(Name = "User ID")]
+        public string Id { get; set; }
+
+        [Required]
+        [Display(Name = "DOB")]
+        public string Dob { get; set; }
     }
 
     public class ResetPasswordViewModel
