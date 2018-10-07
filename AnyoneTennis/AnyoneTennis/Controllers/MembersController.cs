@@ -33,7 +33,9 @@ namespace AnyoneTennis.Controllers
                               CoachId = c.CoachId,
                               Name = c.Name,
                               Nickname = c.Nickname,
-                              Biography = c.Biography
+                              Biography = c.Biography,
+                              EventId = e.EventId,
+                              
                           }
 
                           ).ToList();

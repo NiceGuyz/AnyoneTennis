@@ -40,5 +40,27 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script>
+        $(".btn-enroll").click(function () {
+            var eventDate = new Date($(this).attr("data-event-date"));
+            var today = new Date();
+
+            var id = $(this).attr("data-id");
+            console.log(id);
+
+            var dd = today.getDate();
+            if (eventDate.getDate() > dd) {
+                alert("Cannot enroll to this event. This event has already finish.");
+            } else {
+                var data = {
+                    EventId: id,
+                };
+
+                $.post("/api/SchedulesApi", data).done(function (data) {
+                    console.log(data);
+                });
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<AnyoneTennis.Models.Scheds>
+@using Microsoft.AspNet.Identity
 
 @{
     ViewBag.Title = "Index";
@@ -46,9 +47,12 @@
                 @Html.DisplayFor(modelItem => scheds.Nickname)
             </td>
             <td>
-                @Html.ActionLink("Coach Profile", "Details", "Coaches", new { id = scheds.CoachId }, null) |
-                @Html.ActionLink("Enroll", "Details", "Coaches", new { id = scheds.CoachId }, null)
+                @Html.ActionLink("Coach Profile", "Details", "Coaches", new { id = scheds.CoachId }, null)  |
 
+                @if (Request.IsAuthenticated)
+                {   
+                   <a href="javascript:void(0)" class="btn-enroll" data-event-date="@scheds.EventDate.ToLongDateString()" data-id="@scheds.EventId">Enroll</a>
+                }
             </td>
         </tr>
     }

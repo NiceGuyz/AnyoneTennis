@@ -5,6 +5,7 @@ namespace AnyoneTennis.Models
 {
     public partial class Scheds
     {
+        public int EventId { get; set; }
         public string EventName { get; set; }
         public string EventDescription { get; set; }
         public DateTime EventDate { get; set; }

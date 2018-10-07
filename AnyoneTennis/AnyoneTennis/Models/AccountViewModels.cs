@@ -105,7 +105,7 @@ namespace AnyoneTennis.Models
 
         [Required]
         [Display(Name = "Gender")]
-        public int Gender { get; set; }
+        public string Gender { get; set; }
 
     }
 
