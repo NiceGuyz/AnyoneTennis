@@ -96,9 +96,12 @@
       <HintPath>..\packages\Microsoft.Extensions.Primitives.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+=======
+>>>>>>> parent of e3d5e6e... added models, initial migration
 =======
 >>>>>>> parent of e3d5e6e... added models, initial migration
     <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
@@ -129,9 +132,12 @@
       <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
     </Reference>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+=======
+>>>>>>> parent of e3d5e6e... added models, initial migration
 =======
 >>>>>>> parent of e3d5e6e... added models, initial migration
     <Reference Include="System.Numerics" />
@@ -198,7 +204,10 @@
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of e3d5e6e... added models, initial migration
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -298,6 +307,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\SchedulesApiController.cs" />
     <Compile Include="Controllers\SchedulesController.cs" />
@@ -313,6 +323,11 @@
       <DependentUpon>20181007102706_MemberId.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\tennisContextModelSnapshot.cs" />
+=======
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+>>>>>>> parent of e3d5e6e... added models, initial migration
 =======
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
