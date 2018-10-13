@@ -1,11 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
-<<<<<<< HEAD
 using AnyoneTennis.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-=======
->>>>>>> parent of e3d5e6e... added models, initial migration
 
 [assembly: OwinStartupAttribute(typeof(AnyoneTennis.Startup))]
 namespace AnyoneTennis
@@ -16,7 +13,6 @@ namespace AnyoneTennis
         {
             ConfigureAuth(app);
         }
-<<<<<<< HEAD
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -25,7 +21,5 @@ namespace AnyoneTennis
             var connection = @"Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<tennisContext>(options => options.UseSqlServer(connection));
         }
-=======
->>>>>>> parent of e3d5e6e... added models, initial migration
     }
 }
