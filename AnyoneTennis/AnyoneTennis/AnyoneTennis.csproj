@@ -319,14 +319,14 @@
     </Compile>
 >>>>>>> parent of e3d5e6e... added models, initial migration
     <Compile Include="Models\AccountViewModels.cs" />
+<<<<<<< HEAD
     <Compile Include="Models\Coach.cs" />
     <Compile Include="Models\Scheds.cs" />
     <Compile Include="Models\Event.cs" />
+=======
+>>>>>>> parent of 9318e84... add models
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Member.cs" />
-    <Compile Include="Models\Schedule.cs" />
-    <Compile Include="Models\tennisContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
