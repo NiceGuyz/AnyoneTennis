@@ -286,22 +286,20 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MembersController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SchedulesApiController.cs" />
     <Compile Include="Controllers\SchedulesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20181006033324_IntialDb.cs" />
-    <Compile Include="Migrations\20181006033324_IntialDb.designer.cs">
-      <DependentUpon>20181006033324_IntialDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20181007102706_MemberId.cs" />
-    <Compile Include="Migrations\20181007102706_MemberId.designer.cs">
-      <DependentUpon>20181007102706_MemberId.cs</DependentUpon>
+    <Compile Include="Migrations\20181013151900_role.cs" />
+    <Compile Include="Migrations\20181013151900_role.designer.cs">
+      <DependentUpon>20181013151900_role.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\tennisContextModelSnapshot.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Coach.cs" />
+    <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Models\Scheds.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -387,6 +385,11 @@
     <Content Include="Views\Schedules\Details.cshtml" />
     <Content Include="Views\Schedules\Edit.cshtml" />
     <Content Include="Views\Schedules\Index.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\Role\Edit.cshtml" />
+    <Content Include="Views\Role\Details.cshtml" />
+    <Content Include="Views\Role\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

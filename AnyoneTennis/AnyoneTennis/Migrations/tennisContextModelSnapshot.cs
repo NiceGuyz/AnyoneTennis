@@ -103,6 +103,8 @@ namespace AnyoneTennis.Migrations
                         .HasMaxLength(200)
                         .IsUnicode(false);
 
+                    b.Property<string>("email");
+
                     b.HasKey("MemberId");
 
                     b.ToTable("member");

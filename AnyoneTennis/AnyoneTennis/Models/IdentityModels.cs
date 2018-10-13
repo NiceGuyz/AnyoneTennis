@@ -20,6 +20,13 @@ namespace AnyoneTennis.Models
         }
     }
 
+    public class ApplicationRole : IdentityRole
+    {
+        public ApplicationRole() : base() { }
+        
+        public ApplicationRole(string roleName):base(roleName) { }
+    }
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public int MemberId { get; set; }
@@ -39,5 +46,8 @@ namespace AnyoneTennis.Models
         public System.Data.Entity.DbSet<AnyoneTennis.Models.Coach> Coaches { get; set; }
 
         public System.Data.Entity.DbSet<AnyoneTennis.Models.Schedule> Schedules { get; set; }
+        public System.Data.Entity.DbSet<AnyoneTennis.Models.RoleViewModel> RoleViewModel { get; set; }
+
+
     }
 }

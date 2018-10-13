@@ -15,6 +15,7 @@ namespace AnyoneTennis.Controllers
         private tennisContext db = new tennisContext();
 
         // GET: Schedules
+       
         public ActionResult Index()
         {
             return View(db.Schedule.ToList());

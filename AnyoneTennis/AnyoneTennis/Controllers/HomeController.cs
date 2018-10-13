@@ -16,20 +16,20 @@ namespace AnyoneTennis.Controllers
         {
             _db = db;
         } */
-
+        [Authorize]
         public ActionResult Index()
         {
      //       var coach = _db.Coach.OrderByDescending(x => x.CoachId).Take(5).ToArray();
             return View();
         }
-
+        [Authorize]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
-
+        [Authorize]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AnyoneTennis.Migrations
 {
     [DbContext(typeof(tennisContext))]
-    [Migration("20181007102706_MemberId")]
-    partial class MemberId
+    [Migration("20181013151900_role")]
+    partial class role
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -104,6 +104,8 @@ namespace AnyoneTennis.Migrations
                         .HasColumnName("name")
                         .HasMaxLength(200)
                         .IsUnicode(false);
+
+                    b.Property<string>("email");
 
                     b.HasKey("MemberId");
 

@@ -107,6 +107,8 @@ namespace AnyoneTennis.Models
         [Display(Name = "Gender")]
         public string Gender { get; set; }
 
+        public string RoleName { get; set; }
+
     }
 
     public class RegisterDobModel
