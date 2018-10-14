@@ -296,6 +296,10 @@
     <Compile Include="Migrations\20181013151900_role.designer.cs">
       <DependentUpon>20181013151900_role.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20181014045523_DeleteEmail.cs" />
+    <Compile Include="Migrations\20181014045523_DeleteEmail.designer.cs">
+      <DependentUpon>20181014045523_DeleteEmail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\tennisContextModelSnapshot.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Coach.cs" />
