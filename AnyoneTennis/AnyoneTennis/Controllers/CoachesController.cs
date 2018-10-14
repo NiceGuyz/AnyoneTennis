@@ -15,7 +15,7 @@ namespace AnyoneTennis.Controllers
         private tennisContext db = new tennisContext();
 
         // GET: Coaches
-        [Authorize]
+        //[Authorize]
         public ActionResult Index()
         {
             return View(db.Coach.ToList());

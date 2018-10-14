@@ -10,5 +10,8 @@ namespace AnyoneTennis.Models
         public string Nickname { get; set; }
         public DateTime Dob { get; set; }
         public string Biography { get; set; }
+
+        public virtual ICollection<Event> Events { get; set; }
+
     }
 }
