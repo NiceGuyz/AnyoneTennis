@@ -11,7 +11,7 @@ namespace AnyoneTennis.Models
         public DateTime Dob { get; set; }
         public string Biography { get; set; }
 
-        public virtual ICollection<Event> Events { get; set; }
+        //public virtual ICollection<Event> Events { get; set; }
 
     }
 }

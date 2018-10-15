@@ -96,7 +96,7 @@
         </table>
     }
 
-    @if (Model.Enrollments != null)
+    @if (Model.Members != null)
     {
         <h3>
             Students Enrolled in Selected Course
@@ -106,14 +106,14 @@
                 <th>Name</th>
                 <th>Grade</th>
             </tr>
-            @foreach (var item in Model.Enrollments)
+            @foreach (var item in Model.Members)
             {
                 <tr>
                     <td>
-                        @item.Member.Name
+                        @item.Name
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Grade)
+                        @Html.DisplayFor(modelItem => item.Dob)
                     </td>
                 </tr>
             }

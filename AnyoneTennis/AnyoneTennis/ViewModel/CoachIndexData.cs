@@ -10,6 +10,7 @@ namespace AnyoneTennis.ViewModels
     {
         public IEnumerable<Coach> Coaches { get; set; }
         public IEnumerable<Event> Events { get; set; }
-        public IEnumerable<Enrollment> Enrollments { get; set; }
+        public IEnumerable<Member> Members { get; set; }
+
     }
 }
