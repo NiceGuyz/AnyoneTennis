@@ -9,7 +9,7 @@ namespace AnyoneTennis.Models
         public string Name { get; set; }
         public DateTime Dob { get; set; }
         public string Gender { get; set; }
-        public string email { get; set; }
+        public string emailId { get; set; }
 
         
     }

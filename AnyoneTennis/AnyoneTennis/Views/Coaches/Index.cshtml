@@ -28,10 +28,10 @@
         }
         <tr class="@selectedRow">
             <td>
-                @Html.DisplayFor(modelItem => item.Name))
+                @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Nickname))
+                @Html.DisplayFor(modelItem => item.Nickname)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Dob)
@@ -66,19 +66,14 @@
         <table class="table">
             <tr>
                 <th></th>
-                <th>Number</th>
+                <th>Event ID</th>
                 <th>Title</th>
-                <th>Department</th>
+                <th>Description</th>
             </tr>
 
             @foreach (var item in Model.Events)
             {
-                string selectedRow = "";
-                if (item.EventId == ViewBag.EventId)
-                {
-                    selectedRow = "success";
-                }
-                <tr class="@selectedRow">
+                <tr>
                     <td>
                         @Html.ActionLink("Select", "Index", new { EventId = item.EventId })
                     </td>
@@ -90,30 +85,31 @@
                     </td>
                     <td>
                         @item.Description
+                    </td>
                 </tr>
             }
 
         </table>
     }
 
-    @if (Model.Enrollments != null)
+    @if (Model.Members != null)
     {
         <h3>
-            Students Enrolled in Selected Course
+            Students Enrolled in Selected Event
         </h3>
         <table class="table">
             <tr>
                 <th>Name</th>
                 <th>Grade</th>
             </tr>
-            @foreach (var item in Model.Enrollments)
+            @foreach (var item in Model.Members)
             {
                 <tr>
                     <td>
-                        @item.Member.Name
+                        @item.Name
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Grade)
+                        @Html.DisplayFor(modelItem => item.Name)
                     </td>
                 </tr>
             }

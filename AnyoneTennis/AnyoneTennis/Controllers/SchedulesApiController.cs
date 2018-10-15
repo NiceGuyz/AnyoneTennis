@@ -40,7 +40,7 @@ namespace AnyoneTennis.Controllers
         [ResponseType(typeof(Schedule))]
         public IHttpActionResult PostSchedule(Schedule schedule)
         {
-            var id = db.Member.FirstOrDefault(m => m.email == User.Identity.GetUserName());
+            var id = db.Member.FirstOrDefault(m => m.emailId == User.Identity.GetUserName());
 
             if (!ModelState.IsValid)
             {

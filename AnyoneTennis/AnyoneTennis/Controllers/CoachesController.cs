@@ -27,58 +27,33 @@ namespace AnyoneTennis.Controllers
                 .Include(i => i.Dob)
                 .Include(i => i.Name)
                 .Include(i => i.Biography);
-            //.Include(i => i.Courses.Select(c => c.Department))
-            //.OrderBy(i => i.LastName);
 
             if (id != null)
             {
-                ViewBag.CoachId = id.Value;
-                viewModel.Events = viewModel.Events;
-
-                //Where(
-                //i => i.Coach == id.Value).Single().
+                ViewBag.Coach = id.Value;
+                viewModel.Events = db.Event
+                    .Include(i => i.EventId)
+                    .Include(i => i.Name)
+                    .Include(i => i.Description)
+                    .Where(i => i.Coach == id.Value);
             }
 
-            //if (courseID != null)
-            //{
-            //    ViewBag.CourseID = courseID.Value;
-            //    // Lazy loading
-            //    //viewModel.Enrollments = viewModel.Courses.Where(
-            //    //    x => x.CourseID == courseID).Single().Enrollments;
-            //    // Explicit loading
-            //    var selectedCourse = viewModel.Courses.Where(x => x.CourseID == courseID).Single();
-            //    db.Entry(selectedCourse).Collection(x => x.Enrollments).Load();
-            //    foreach (Enrollment enrollment in selectedCourse.Enrollments)
-            //    {
-            //        db.Entry(enrollment).Reference(x => x.Student).Load();
-            //    }
+            if (EventId != null)
+            {
+                ViewBag.EventId = EventId.Value;
+                viewModel.Members = (from m in db.Member
+                                   join s in db.Schedule on m.MemberId equals s.MemberId
+                                   where s.EventId == EventId.Value
+                                   select new Member
+                                   {
+                                       Name = m.Name
+                                   });
 
-            //    viewModel.Enrollments = selectedCourse.Enrollments;
-            //}
+            
+            }
 
             return View(viewModel);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //return View(db.Coach.ToList());
+         
         }
 
         // GET: Coaches/Details/5
