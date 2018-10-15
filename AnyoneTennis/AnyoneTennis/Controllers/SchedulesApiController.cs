@@ -40,6 +40,7 @@ namespace AnyoneTennis.Controllers
         [ResponseType(typeof(Schedule))]
         public IHttpActionResult PostSchedule(Schedule schedule)
         {
+            // get id of user
             var id = db.Member.FirstOrDefault(m => m.emailId == User.Identity.GetUserName());
 
             if (!ModelState.IsValid)
@@ -47,11 +48,13 @@ namespace AnyoneTennis.Controllers
                 return BadRequest(ModelState);
             }
 
+            // enroll member to a schedule
             db.Schedule.Add(new Schedule
             {
                 MemberId = id.MemberId,
                 EventId = schedule.EventId
             });
+            // save changes
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = schedule.ScheduleId }, schedule);

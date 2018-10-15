@@ -23,6 +23,7 @@ namespace AnyoneTennis.Controllers
         // GET: Schedules
         public ActionResult Schedules()
         {
+            // get all of the schedules with coaches
             var scheds = (from e in db.Event
                           join c in db.Coach on e.Coach equals c.CoachId
                           select new Scheds
@@ -40,7 +41,7 @@ namespace AnyoneTennis.Controllers
 
                           ).ToList();
 
-
+            // pass data to view
             return View(scheds);
         }
 
@@ -96,22 +97,6 @@ namespace AnyoneTennis.Controllers
             }
             return View(member);
         }
-
-        // POST: Members/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-      /*  [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MemberId,Name,Dob,Gender")] Member member)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(member).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(member);
-        } */
 
         // GET: Members/Delete/5
         public ActionResult Delete(int? id)

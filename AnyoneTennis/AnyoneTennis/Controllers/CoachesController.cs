@@ -15,22 +15,26 @@ namespace AnyoneTennis.Controllers
 {
     public class CoachesController : Controller
     {
+        // call database orm
         private tennisContext db = new tennisContext();
+        // call Coach model
         private Coach c;
 
         // GET: Coaches
         //[Authorize]
         public ActionResult Index(int? id, int? EventId)
         {
-
+            // add view model
             var viewModel = new CoachIndexData();
 
+            // get all coach
             viewModel.Coaches = db.Coach
                 .Include(i => i.CoachId)
                 .Include(i => i.Dob)
                 .Include(i => i.Name)
                 .Include(i => i.Biography);
 
+            // if id is not null get events that coach handles
             if (id != null)
             {
                 ViewBag.Coach = id.Value;
@@ -42,6 +46,7 @@ namespace AnyoneTennis.Controllers
                     .Where(i => i.Coach == id.Value);
             }
 
+            // if eventId is not null get all of the members that is enrolled in the event
             if (EventId != null)
             {
                 ViewBag.EventId = EventId.Value;
@@ -59,6 +64,7 @@ namespace AnyoneTennis.Controllers
 
             }
 
+            // return records
             return View(viewModel);
         }
 
@@ -90,55 +96,6 @@ namespace AnyoneTennis.Controllers
             return View();
         }
 
-
-        //public ActionResult Create()
-        //{
-        //    var events = new List<Event>();
-        //    PopulateAssignedCourseData(events);
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "LastName,FirstMidName,HireDate,OfficeAssignment")]Instructor instructor, string[] selectedCourses)
-        //{
-        //    if (selectedCourses != null)
-        //    {
-        //        instructor.Courses = new List<Course>();
-        //        foreach (var course in selectedCourses)
-        //        {
-        //            var courseToAdd = db.Courses.Find(int.Parse(course));
-        //            instructor.Courses.Add(courseToAdd);
-        //        }
-        //    }
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Instructors.Add(instructor);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    PopulateAssignedCourseData(instructor);
-        //    return View(instructor);
-        //}
-
-
-        //private void PopulateAssignedCourseData(Event Events)
-        //{
-        //    var allCourses = db.Event;
-        //    var coachEvent = new HashSet<int>(Events.Select(c => c.CourseID));
-        //    var viewModel = new List<AssignedCourseData>();
-        //    foreach (var course in allCourses)
-        //    {
-        //        viewModel.Add(new AssignedCourseData
-        //        {
-        //            CourseID = course.CourseID,
-        //            Title = course.Title,
-        //            Assigned = instructorCourses.Contains(course.CourseID)
-        //        });
-        //    }
-        //    ViewBag.Courses = viewModel;
-        //}
-
         // POST: Coaches/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -146,11 +103,10 @@ namespace AnyoneTennis.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CoachId,Name,Nickname,Dob,Biography")] CoachEvent coachEvent, string[] selectedCourses)
         {
-            
+            // validate form            
             if (ModelState.IsValid)
             {
-                
-
+                // add new coach
                 db.Coach.Add(c = new Coach
                 {
                     Name = coachEvent.Name,
@@ -158,53 +114,29 @@ namespace AnyoneTennis.Controllers
                     Dob = coachEvent.Dob,
                     Biography = coachEvent.Biography
                 });
+                // save changes
                 db.SaveChanges();
 
+                // check if event is selected
                 if (selectedCourses != null)
                 {
                     coachEvent.Events = new List<Event>();
                     foreach (var course in selectedCourses)
                     {
+                        // update every event 
                         System.Diagnostics.Debug.WriteLine(c.CoachId);
                         Event events = db.Event.Find(int.Parse(course));
                         events.Coach = c.CoachId;
                     }
                 }
+                // save changes
                 db.SaveChanges();
-
-
-
-
-
-
-                /*  if (selectedCourses != null)
-                  {
-                  System.Diagnostics.Debug.WriteLine(c.CoachId);
-                      coachEvent.Events = new List<Event>();
-                      foreach (var course in selectedCourses)
-                      {
-                          Event events = db.Event.Find(int.Parse(course));
-                          events.Coach = 4;
-                      }
-                  }
-
-                  db.Coach.Add(new Coach
-                  {
-                      CoachId = coachEvent.CoachId,
-                      Name = coachEvent.Name,
-                      Nickname = coachEvent.Nickname,
-                      Dob = coachEvent.Dob,
-                      Biography = coachEvent.Biography
-                  });
-                  db.SaveChanges();
-
-                  */
-
+                
                 return RedirectToAction("Index");
             }
 
             
-
+            // get all of the event
             ViewBag.Events = (from m in db.Event
                               select new Event
                               {

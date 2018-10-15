@@ -10,16 +10,9 @@ namespace AnyoneTennis.Controllers
     public class HomeController : Controller
     {
 
-      /*  private readonly tennisContext _db;
 
-        public HomeController(tennisContext db)
-        {
-            _db = db;
-        } */
-        
         public ActionResult Index()
         {
-     //       var coach = _db.Coach.OrderByDescending(x => x.CoachId).Take(5).ToArray();
             return View();
         }
         

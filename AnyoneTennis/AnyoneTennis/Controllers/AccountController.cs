@@ -17,16 +17,17 @@ namespace AnyoneTennis.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        // authentication and authirization
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private ApplicationRoleManager _roleManager;
-      
+        // call the database
         private tennisContext db = new tennisContext();
-
+        // constructor
         public AccountController()
         {
         }
-
+        // constructor
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, ApplicationRoleManager roleManager)
         {
             UserManager = userManager;
