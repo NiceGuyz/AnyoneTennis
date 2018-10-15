@@ -314,6 +314,7 @@
     <Compile Include="Models\tennisContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\AssignedEventData.cs" />
     <Compile Include="ViewModel\CoachIndexData.cs" />
     <Compile Include="ViewModel\EnrollmentDateGroup.cs" />
   </ItemGroup>

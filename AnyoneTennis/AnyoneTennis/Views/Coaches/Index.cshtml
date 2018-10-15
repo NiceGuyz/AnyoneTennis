@@ -40,15 +40,6 @@
                 @Html.DisplayFor(modelItem => item.Biography)
             </td>
 
-            @*<td>
-                @{
-                    foreach (var Events in item.Events)
-                    {
-                        @Events.EventId @:  @Events.Name <br />
-                    }
-                }
-            </td>*@
-
             <td>
                 @Html.ActionLink("Select", "Index", new { id = item.CoachId }) |
                 @Html.ActionLink("Edit", "Edit", new { id = item.CoachId }) |
@@ -61,58 +52,80 @@
 </table>
 
 @if (Model.Events != null)
-    {
-        <h3>Event Taught by Selected Coach</h3>
-        <table class="table">
-            <tr>
-                <th></th>
-                <th>Event ID</th>
-                <th>Title</th>
-                <th>Description</th>
-            </tr>
+{
+    <h3>Event Taught by Selected Coach</h3>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Number</th>
+            <th>EventName</th>
+            <th>EventDescription</th>
+            <th>Date</th>
+        </tr>
 
-            @foreach (var item in Model.Events)
+        @foreach (var item in Model.Events)
             {
-                <tr>
-                    <td>
-                        @Html.ActionLink("Select", "Index", new { EventId = item.EventId })
-                    </td>
-                    <td>
-                        @item.EventId
-                    </td>
-                    <td>
-                        @item.Name
-                    </td>
-                    <td>
-                        @item.Description
-                    </td>
-                </tr>
+                string selectedRow = "";
+                if (item.EventId == ViewBag.EventId)
+                {
+                    selectedRow = "success";
+                }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.ActionLink("Select", "Index", new { EventId = item.EventId })
+                </td>
+                <td>
+                    @item.EventId
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Description
+                </td>
+                <td>
+                    @item.Date
+                </td>
+            </tr>
             }
-
         </table>
     }
 
-    @if (Model.Members != null)
-    {
-        <h3>
-            Students Enrolled in Selected Event
-        </h3>
-        <table class="table">
-            <tr>
-                <th>Name</th>
-                <th>Grade</th>
-            </tr>
-            @foreach (var item in Model.Members)
-            {
-                <tr>
-                    <td>
-                        @item.Name
-                    </td>
-                    <td>
 
-                        @Html.DisplayFor(modelItem => item.Dob)
-                    </td>
-                </tr>
-            }
-        </table>
+
+
+@if (Model.Members != null)
+{
+    <h3>
+        Members Enrolled in Selected Event
+    </h3>
+    <table class="table">
+        <tr>
+            <th>MemberID</th>
+            <th>Name</th>
+            <th>Dob</th>
+            <th>Gender</th>
+        </tr>
+        @foreach (var item in Model.Members)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MemberId)
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dob)
+                </td>
+                @if (item.Gender == "1")
+                {
+                    <td>Male</td>
+                }
+                else
+                {
+                    <td>Female</td>}
+            </tr>
+        }
+    </table>
 }
