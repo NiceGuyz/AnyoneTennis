@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AnyoneTennis.Models
 {
-    public partial class Coach
+    public partial class CoachEvent
     {
         public int CoachId { get; set; }
         public string Name { get; set; }
@@ -11,6 +11,6 @@ namespace AnyoneTennis.Models
         public DateTime Dob { get; set; }
         public string Biography { get; set; }
 
-
+        public virtual ICollection<Event> Events { get; set; }
     }
 }
