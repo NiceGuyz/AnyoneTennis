@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AnyoneTennis.Models;
+using AnyoneTennis.ViewModel;
 using AnyoneTennis.ViewModels;
 
 namespace AnyoneTennis.Controllers
@@ -14,6 +16,7 @@ namespace AnyoneTennis.Controllers
     public class CoachesController : Controller
     {
         private tennisContext db = new tennisContext();
+        private Coach c;
 
         // GET: Coaches
         //[Authorize]
@@ -77,12 +80,12 @@ namespace AnyoneTennis.Controllers
         // GET: Coaches/Create
         public ActionResult Create()
         {
-            ViewBag.Events = (from m in db.Event select new Event
+            ViewBag.Events = (from m in db.Event select new AssignedEventData
             {
                 EventId = m.EventId,
-                Name = m.Name
+                Title = m.Name,
+                Assigned = false
             });
-
 
             return View();
         }
@@ -126,16 +129,74 @@ namespace AnyoneTennis.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CoachId,Name,Nickname,Dob,Biography")] Coach coach)
+        public ActionResult Create([Bind(Include = "CoachId,Name,Nickname,Dob,Biography")] CoachEvent coachEvent, string[] selectedCourses)
         {
+            
             if (ModelState.IsValid)
             {
-                db.Coach.Add(coach);
+                
+
+                db.Coach.Add(c = new Coach
+                {
+                    Name = coachEvent.Name,
+                    Nickname = coachEvent.Nickname,
+                    Dob = coachEvent.Dob,
+                    Biography = coachEvent.Biography
+                });
                 db.SaveChanges();
+
+                if (selectedCourses != null)
+                {
+                    coachEvent.Events = new List<Event>();
+                    foreach (var course in selectedCourses)
+                    {
+                        System.Diagnostics.Debug.WriteLine(c.CoachId);
+                        Event events = db.Event.Find(int.Parse(course));
+                        events.Coach = c.CoachId;
+                    }
+                }
+                db.SaveChanges();
+
+
+
+
+
+
+                /*  if (selectedCourses != null)
+                  {
+                  System.Diagnostics.Debug.WriteLine(c.CoachId);
+                      coachEvent.Events = new List<Event>();
+                      foreach (var course in selectedCourses)
+                      {
+                          Event events = db.Event.Find(int.Parse(course));
+                          events.Coach = 4;
+                      }
+                  }
+
+                  db.Coach.Add(new Coach
+                  {
+                      CoachId = coachEvent.CoachId,
+                      Name = coachEvent.Name,
+                      Nickname = coachEvent.Nickname,
+                      Dob = coachEvent.Dob,
+                      Biography = coachEvent.Biography
+                  });
+                  db.SaveChanges();
+
+                  */
+
                 return RedirectToAction("Index");
             }
 
-            return View(coach);
+            
+
+            ViewBag.Events = (from m in db.Event
+                              select new Event
+                              {
+                                  EventId = m.EventId,
+                                  Name = m.Name
+                              });
+            return View(coachEvent);
         }
 
         // GET: Coaches/Edit/5

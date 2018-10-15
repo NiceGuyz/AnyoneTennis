@@ -1,10 +1,14 @@
-﻿using System;
+﻿using AnyoneTennis.Models;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
-namespace AnyoneTennis.Models
+namespace AnyoneTennis.ViewModel
 {
-    public partial class CoachEvent
+    public class EventCoach
     {
+
         public int CoachId { get; set; }
         public string Name { get; set; }
         public string Nickname { get; set; }
