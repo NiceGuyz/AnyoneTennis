@@ -24,9 +24,42 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
 
-               
+
+
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Member"))
+                        {
+
+                            <li>@Html.ActionLink("Schedules", "Schedules", "Members")</li>
+
+                        }
+                    }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Coach"))
+                        {
+
+                            
+                            <li>@Html.ActionLink("Coaches", "Index", "Coaches")</li>
+                            
+                        }
+                    }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Admin"))
+                        {
+
+                            <li>@Html.ActionLink("Schedules", "Schedules", "Members")</li>
+                            <li>@Html.ActionLink("Coaches", "Index", "Coaches")</li>
                             <li>@Html.ActionLink("Role", "Index", "Role")</li>
-                     
+                        }
+                    }
+
+
 
 
 

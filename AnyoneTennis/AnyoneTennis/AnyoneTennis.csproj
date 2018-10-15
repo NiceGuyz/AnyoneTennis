@@ -302,6 +302,7 @@
     </Compile>
     <Compile Include="Migrations\tennisContextModelSnapshot.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CoachEvent.cs" />
     <Compile Include="Models\Coach.cs" />
     <Compile Include="Models\Enrollment.cs" />
     <Compile Include="Models\RoleViewModel.cs" />

@@ -77,6 +77,13 @@ namespace AnyoneTennis.Controllers
         // GET: Coaches/Create
         public ActionResult Create()
         {
+            ViewBag.Events = (from m in db.Event select new Event
+            {
+                EventId = m.EventId,
+                Name = m.Name
+            });
+
+
             return View();
         }
 
