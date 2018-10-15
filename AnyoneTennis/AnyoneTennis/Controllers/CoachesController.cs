@@ -83,9 +83,8 @@ namespace AnyoneTennis.Controllers
 
         //public ActionResult Create()
         //{
-        //    var instructor = new Instructor();
-        //    instructor.Courses = new List<Course>();
-        //    PopulateAssignedCourseData(instructor);
+        //    var events = new List<Event>();
+        //    PopulateAssignedCourseData(events);
         //    return View();
         //}
 
@@ -113,6 +112,22 @@ namespace AnyoneTennis.Controllers
         //}
 
 
+        //private void PopulateAssignedCourseData(Event Events)
+        //{
+        //    var allCourses = db.Event;
+        //    var coachEvent = new HashSet<int>(Events.Select(c => c.CourseID));
+        //    var viewModel = new List<AssignedCourseData>();
+        //    foreach (var course in allCourses)
+        //    {
+        //        viewModel.Add(new AssignedCourseData
+        //        {
+        //            CourseID = course.CourseID,
+        //            Title = course.Title,
+        //            Assigned = instructorCourses.Contains(course.CourseID)
+        //        });
+        //    }
+        //    ViewBag.Courses = viewModel;
+        //}
 
         // POST: Coaches/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
