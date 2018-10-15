@@ -161,7 +161,8 @@ namespace AnyoneTennis.Controllers
             List<SelectListItem> list = new List<SelectListItem>();
             foreach (var role in RoleManager.Roles)
                 list.Add(new SelectListItem() { Value = role.Name, Text = role.Name });
-            ViewBag.Roles = list;  
+            ViewBag.Roles = list;
+
             return View();
         }
 
