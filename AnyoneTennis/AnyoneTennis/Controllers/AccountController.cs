@@ -182,7 +182,7 @@ namespace AnyoneTennis.Controllers
                     result = await UserManager.AddToRoleAsync(user.Id, model.RoleName);
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
-                    db.Member.Add(new Member { email = model.Email, Name = model.Name, Dob = model.Dob, Gender = model.Gender });
+                    db.Member.Add(new Member { emailId = model.Email, Name = model.Name, Dob = model.Dob, Gender = model.Gender });
                     db.SaveChanges();
 
 

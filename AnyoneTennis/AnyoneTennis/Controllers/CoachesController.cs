@@ -35,6 +35,7 @@ namespace AnyoneTennis.Controllers
                     .Include(i => i.EventId)
                     .Include(i => i.Name)
                     .Include(i => i.Description)
+                    .Include(i => i.Date)
                     .Where(i => i.Coach == id.Value);
             }
 
@@ -46,7 +47,11 @@ namespace AnyoneTennis.Controllers
                                      where s.EventId == EventId.Value
                                      select new Member
                                      {
-                                         Name = m.Name
+                                         Name = m.Name,
+                                         Dob = m.Dob,
+                                         emailId = m.emailId,
+                                         Gender = m.Gender,
+                                         MemberId = m.MemberId
                                      });
 
             }
@@ -74,6 +79,40 @@ namespace AnyoneTennis.Controllers
         {
             return View();
         }
+
+
+        //public ActionResult Create()
+        //{
+        //    var instructor = new Instructor();
+        //    instructor.Courses = new List<Course>();
+        //    PopulateAssignedCourseData(instructor);
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "LastName,FirstMidName,HireDate,OfficeAssignment")]Instructor instructor, string[] selectedCourses)
+        //{
+        //    if (selectedCourses != null)
+        //    {
+        //        instructor.Courses = new List<Course>();
+        //        foreach (var course in selectedCourses)
+        //        {
+        //            var courseToAdd = db.Courses.Find(int.Parse(course));
+        //            instructor.Courses.Add(courseToAdd);
+        //        }
+        //    }
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Instructors.Add(instructor);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    PopulateAssignedCourseData(instructor);
+        //    return View(instructor);
+        //}
+
+
 
         // POST: Coaches/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
